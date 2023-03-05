@@ -1,1 +1,15 @@
+server:
+  port: 9000
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  application:
+    name: kafka-producer-service
+
+service:
+  send-cron: 0/10 * * * * *
+  kafka-topic: task
 
