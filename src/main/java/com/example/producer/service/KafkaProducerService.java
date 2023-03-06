@@ -17,15 +17,15 @@ public class KafkaProducerService {
   @Value("${service.kafka-topic}")
   private String kafkaTopic;
 
-  private final KafkaTemplate<String, Integer> kafkaTemplate;
+  private final KafkaTemplate<String, String> kafkaTemplate;
 
   private final Random random = new Random();
 
   @Scheduled(cron = "${service.send-cron}")
   public void sendRandomNumberToKafka() {
 
-    int randNumber = random.nextInt(10) + 1;
-    kafkaTemplate.send(kafkaTopic, "randNumber", randNumber);
-    log.info("Sent message with random number: {}", randNumber);
+    int randomNumber = random.nextInt(10) + 1;
+    kafkaTemplate.send(kafkaTopic, "randomNumber", String.valueOf(randomNumber));
+    log.info("Sent message with random number: {}", randomNumber);
   }
 }
