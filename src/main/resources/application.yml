@@ -7,7 +7,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
   application:
-    name: kafka-producer-service
+    name: producer-service
 
 service:
   send-cron: 0/10 * * * * *
